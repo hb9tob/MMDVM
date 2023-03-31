@@ -67,9 +67,9 @@
 // #define EXTERNAL_OSC 19200000
 
 // Select a baud rate for host communication. The faster speeds are needed for external FM to work.
-// #define SERIAL_SPEED 115200 // Suitable for most older boards (Arduino Due, STM32F1_POG, etc). External FM will NOT work with this!
+#define SERIAL_SPEED 115200 // Suitable for most older boards (Arduino Due, STM32F1_POG, etc). External FM will NOT work with this!
 // #define SERIAL_SPEED 230400 // Only works on newer boards like fast M4, M7, Teensy 3.x. External FM might work with this
-#define SERIAL_SPEED 460800	// Only works on newer boards like fast M4, M7, Teensy 3.x. External FM should work with this
+//#define SERIAL_SPEED 460800	// Only works on newer boards like fast M4, M7, Teensy 3.x. External FM should work with this
 //#define SERIAL_SPEED 500000  // Used with newer boards and Armbian on AllWinner SOCs (H2, H3) that do not support 460800
 
 // Use pins to output the current mode via LEDs
@@ -90,7 +90,7 @@
 // #define ARDUINO_DUE_NTH
 
 // For ST Nucleo-64 STM32F446RE board
-// #define STM32F4_NUCLEO_MORPHO_HEADER
+#define STM32F4_NUCLEO_MORPHO_HEADER
 // #define STM32F4_NUCLEO_ARDUINO_HEADER
 
 // Use separate mode pins to switch external channel/filters/bandwidth for example

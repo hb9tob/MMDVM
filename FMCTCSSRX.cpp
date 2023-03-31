@@ -81,7 +81,7 @@ const struct RX_CTCSS_TABLE {
 const uint8_t CTCSS_TABLE_DATA_LEN = 50U;
 
 // 4Hz bandwidth
-const uint16_t N = 24000U / 4U;
+const uint16_t N = 24000U / 3U;
 
 CFMCTCSSRX::CFMCTCSSRX() :
 m_coeffDivTwo(0),
@@ -117,7 +117,9 @@ uint8_t CFMCTCSSRX::setParams(uint8_t frequency, uint8_t highThreshold, uint8_t 
 bool CFMCTCSSRX::process(q15_t sample)
 {
   //get more dynamic into the decoder by multiplying the sample by 1.5
-  q31_t sample31 = q31_t(sample) +  (q31_t(sample) >> 1);
+  //q31_t sample31 = q31_t(sample) +  (q31_t(sample) >> 1);
+  q31_t sample31 = q31_t(sample) << 1;
+
 
   q31_t q2 = m_q1;
   m_q1 = m_q0;
@@ -158,7 +160,7 @@ bool CFMCTCSSRX::process(q15_t sample)
 
     m_state = value >= threshold;
 
-    if (previousState != m_state)
+//    if (previousState != m_state)
       DEBUG4("CTCSS Value / Threshold / Valid", value, threshold, m_state);
 
     m_count = 0U;

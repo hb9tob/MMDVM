@@ -24,10 +24,12 @@
 #include "FMNoiseSquelch.h"
 
 // 4500Hz centre frequency
-const q31_t COEFF_DIV_TWO = 821806413;
+//const q31_t COEFF_DIV_TWO = 821806413;
+//const q31_t COEFF_DIV_TWO =   1913422036;
+const q31_t COEFF_DIV_TWO =   1737350932;
 
 // 400Hz bandwidth
-const uint16_t N = 24000U / 400U;
+const uint16_t N = 24000U / 800U;
 
 CFMNoiseSquelch::CFMNoiseSquelch() :
 m_highThreshold(0),
@@ -50,7 +52,7 @@ void CFMNoiseSquelch::setParams(uint8_t highThreshold, uint8_t lowThreshold)
 bool CFMNoiseSquelch::process(q15_t sample)
 {
   //get more dynamic into the decoder by multiplying the sample by 64
-  q31_t sample31 = q31_t(sample) << 6; //+  (q31_t(sample) >> 1);
+  q31_t sample31 = q31_t(sample) << 8; //+  (q31_t(sample) >> 1);
 
   q31_t q2 = m_q1;
   m_q1 = m_q0;
