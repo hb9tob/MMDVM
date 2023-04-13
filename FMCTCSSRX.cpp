@@ -81,7 +81,7 @@ const struct RX_CTCSS_TABLE {
 const uint8_t CTCSS_TABLE_DATA_LEN = 50U;
 
 // 4Hz bandwidth
-const uint16_t N = 24000U / 3U;
+const uint16_t N = 24000U / 2U;
 
 CFMCTCSSRX::CFMCTCSSRX() :
 m_coeffDivTwo(0),

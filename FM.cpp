@@ -64,7 +64,7 @@ m_extAudioBoost(1U),
 m_downSampler(400U),// 100 ms of audio
 m_extEnabled(false),
 m_rxLevel(1),
-m_inputRFRB(2401U),   // 100ms of audio + 1 sample
+m_inputRFRB(4801U),   // 100ms of audio + 1 sample
 m_outputRFRB(2400U),  // 100ms of audio
 m_inputExtRB(),
 m_rfSignal(false),
